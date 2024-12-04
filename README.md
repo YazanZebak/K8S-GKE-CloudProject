@@ -126,6 +126,7 @@ To avoid incurring unnecessary costs, destroy the resources after completing you
 
 ## Results
 
-- Access the Online Boutique via the frontend load balancer IP.
-- View logs and monitor the load generator on the VM.
-- test the load generator locally using Docker.
+- Access the Online Boutique via the frontend load balancer IP (Step 1: Deploying the original application in GKE).
+- Test the load generator locally using Docker (Step 3: Deploying the load generator on a local machine).
+- View logs and monitor the load generator on the VM (Step 4: Deploying automatically the load generator in Google Cloud).
+
