@@ -36,7 +36,7 @@ cd K8S-GKE-CloudProject
 ### 2. Run the Setup Script
 Specify your GCP project ID and region in the `setup.sh` script and execute it to configure the environment.
 ```bash
-./setup.sh
+scripts/setup-env.sh
 ```
 
 ### 3. Configure Terraform and Ansible
@@ -61,7 +61,7 @@ variable "user_keys" {
 ### 4. Deploy the Application and Load Generator
 Run the deployment script:
 ```bash
-./deploy.sh
+scripts/deploy-app.sh
 ```
 
 This script will:
@@ -100,7 +100,7 @@ docker run -d --name load-generator -e FRONTEND_ADDR="http://{{ frontend_addr }}
 
 To avoid incurring unnecessary costs, destroy the resources after completing your tests:
 ```bash
-./destroy-all.sh
+scripts/destroy-all.sh
 ```
 
 ---
