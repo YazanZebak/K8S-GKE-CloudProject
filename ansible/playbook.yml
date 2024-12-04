@@ -1,0 +1,23 @@
+- name: Configure and deploy the load generator
+  hosts: load_generator
+  become: true
+  tasks:
+    - name: Set FRONTEND_ADDR fact
+      set_fact:
+        frontend_addr: "{{ FRONTEND_ADDR }}"
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Pull load generator Docker image
+      command: docker pull yazanzk/loadgen_locust
+
+    - name: Run load generator container
+      command: >
+        docker run -d --name load-generator
+        -e FRONTEND_ADDR="http://{{ frontend_addr }}"
+        --network host
+        yazanzk/loadgen_locust
